@@ -1,0 +1,68 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+}
+
+.pageHolder {
+    height: 100%;
+    /* padding-left: 0px;
+    padding-right: 0px; */
+  }
+
+.mainRow {
+    height: 100%;
+    background-color: rgb(187, 235, 83); 
+}
+
+.subrow1 {
+    height: 10%;
+    background-color: rgb(97, 170, 160);
+}
+
+.subrow2 {
+    height: 90%;
+    background-color: rgba(163, 87, 163, 0.808);
+}
+
+.col-md-9 {
+    height: 100%;
+}
+
+.inputEmotion {
+    padding-top: 30px;
+    padding-left: 20px;
+}
+
+label {
+    padding-right: 20px;
+    color: darkslategray;
+}
+
+#emotionInput {
+    margin-right: 30px;
+    width: 300px;
+}
+
+
+
+.emotionBtns-view {
+    padding-top: 20px;
+}
+.emoBtn {
+    width: 80%;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
+    margin-left: 10%;
+    background-color: darkslategray;
+    color: white;
+}
+
+.gifDiv {
+    display: inline-block;
+    margin: 10px;
+}

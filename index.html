@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>GifTastic</title>
+    <!-- Google Font -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet"> -->
+    <!-- Bootstrap File -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+        crossorigin="anonymous">
+    <!-- My CSS File -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- JQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+    <!-- Overall Bootstrap Grid -->
+    <div class="container-fluid pageHolder">
+        <div class="row no-gutters mainRow">
+            <div class="col-md-9" id="formAndGifs">
+                <div class="row no-gutters subrow1">
+                    <div class="col-md-12" id="formHolder">
+                        <div class="inputEmotion">
+                            <form class="form-inline emotionInput">
+                                <div class="form-group">
+                                    <label for="emotionInput">Add a new emotion or reaction button</label>
+                                    <input type="text" class="form-control" id="emotionInput" placeholder="your emotion or reaction here">
+                                </div>
+                                <button type="submit" class="btn btn-default addEmotion">Submit</button>
+                            </form>
+
+                            <!-- <button type="submit" class="btn btn-default">Submit</button> -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row no-gutters subrow2">
+                    <div class="col-md-12" id="gifHolder">
+                        <div class="gifGrid">
+                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3" id="buttonHolder">
+                <div class="emotionBtns-view">
+                    <h3>Select an emotion/reaction; buttons go here</h3>
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <audio id="myAudio">
+            <!-- <source src="assets/sounds/Wakanda.mp3" type="audio/mp3"> -->
+        </audio>
+
+    </div>
+
+    <!-- My JS File -->
+    <script type="text/javascript" src="javascript/app.js"></script>
+</body>
+
+</html>
