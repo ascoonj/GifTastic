@@ -26,7 +26,6 @@ $(document).ready(function () {
     //call the function to display buttons for emotions in the initial array
     displayButtons();
 
-
     // When the submit button is clicked
     $(".addEmotion").on("click", function (event) {
         //first prevent the button from trying to submit data
@@ -36,7 +35,7 @@ $(document).ready(function () {
         var emotion = $("#emotionInput").val().trim();
 
         //if the user's emotion is not already in the array
-        if (emotions.indexOf(emotion) === -1) {
+        if ((emotions.indexOf(emotion) === -1) && (emotion !== "")) {
 
             // Add the user's emotion input to the array.
             emotions.push(emotion);
@@ -50,8 +49,8 @@ $(document).ready(function () {
     });
 
     // Create a function to call the Giphy API, parse the response and print the corresponding images to the screen
-
     function displayGifs() {
+        
         // Capture the data-name property value from the clicked button
         var feeling = $(this).attr("data-name");
 
