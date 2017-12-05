@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     //initial array of emotions or reactions
 
-    var emotions = ["ecstatic", "bored", "sad", "frustrated", "happy", "tired", "awkward", "heart-broken", "cheerful", "petty", "over it", "whatever", "confused", "unimpressed"];
+    var emotions = ["ecstatic", "bored", "sad", "frustrated", "happy", "tired", "awkward", "heart-broken", "cheerful", "petty", "over it", "whatever", "confused", "zen", "loved"];
 
 
     function displayButtons() {
@@ -29,11 +29,17 @@ $(document).ready(function () {
         // Ccapture the user input from the textbox in emotion variable
         var emotion = $("#emotionInput").val().trim();
 
+        
+
         // Add the user's emotion input to the array.
         emotions.push(emotion);
         
+
         //Re-display the buttons based on the expanded array
         displayButtons();
+
+        //Clear the textbox so the user can enter another emotion if so desired
+        $("#emotionInput").val("");
     });
 
     // Create an on-click function to capture the user-click of an emotion button
@@ -52,7 +58,7 @@ $(document).ready(function () {
                 method: "GET",
                 data: {
                     q: feeling, // use the button's attribute data-name as the search term
-                    api_key: "PhhAnL8WDRYotjl2qiiUGkk1s3tBsthR", // generated api-key
+                    api_key: "PhhAnL8WDRYotjl2qiiUGkk1s3tBsthR", // my generated api-key
                     limit: 10 // request 10 gifs
                 }
             })
@@ -73,7 +79,7 @@ $(document).ready(function () {
                     // Create and store an image element
                     var emotionImg = $("<img>");
 
-                    // Assign multiple attributes to each image div
+                    // Assign multiple attributes to each image div to allow for toggling btw still and animated versions of gifs
 
                     // Add a src attribute which holds the version of the image that will initially be displayed
                     emotionImg.attr("src", results[i].images.fixed_height_still.url); 
@@ -100,15 +106,15 @@ $(document).ready(function () {
     // When a gif is clicked...
     $(".gifGrid").on("click", "img", function () {
         
-        // Get the current value of the data attribute data-state
+        // Get the current value of the data attribute 'data-state'
         var state = $(this).attr("data-state");
-        // If the clicked image's state is still, change its src attribute to what its data-animate attribute value is
+        // If the clicked image's state is still, change its src attribute to what its 'data-animate' attribute value is
         // and set the image's data-state to animate
 
         if (state === "still") {
             $(this).attr("src", $(this).attr("data-animate"));
             $(this).attr("data-state", "animate");
-        // Else set src to the data-still attribute value
+        // Else set src to the 'data-still' attribute value
         // and set the image's data-state to still
         } else {
             $(this).attr("src", $(this).attr("data-still"));
