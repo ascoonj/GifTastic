@@ -34,6 +34,9 @@ body {
 .inputEmotion {
     padding-top: 30px;
     padding-left: 20px;
+    display: flex;
+    flex-direction: row;
+    
 }
 
 label {
@@ -46,7 +49,9 @@ label {
     width: 300px;
 }
 
-
+.emotionInput {
+    float: left;
+}
 
 .emotionBtns-view {
     padding-top: 20px;
@@ -65,4 +70,16 @@ label {
 .gifDiv {
     display: inline-block;
     margin: 10px;
+}
+
+#logo {
+    display: inline-flex;
+    margin-right: 100px;
+}
+
+button:hover {
+    color: darkslategray;
+    background-color: white;
+    font-weight: bold;
+    font-style: italic;
 }
