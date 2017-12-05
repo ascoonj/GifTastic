@@ -67,9 +67,15 @@ label {
     color: white;
 }
 
+.gifGrid {
+    padding-top: 20px;
+}
+
 .gifDiv {
     display: inline-block;
     margin: 10px;
+    text-align: center;
+    font-weight: bold;
 }
 
 #logo {
@@ -82,4 +88,11 @@ button:hover {
     background-color: white;
     font-weight: bold;
     font-style: italic;
+}
+
+.gifDiv:hover {
+    border-style: solid;
+    border-width: 2px;
+    border-color: darkslategray;
+    background-color: rgb(187, 235, 83);
 }
