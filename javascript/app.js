@@ -1,5 +1,11 @@
 $(document).ready(function () {
 
+
+    //create an audio variable, and set it to play on repeat when the page loads
+    var x = document.getElementById("myAudio");
+    x.play();
+    x.loop = true;
+
     //initial array of emotions or reactions
 
     var emotions = ["ecstatic", "bored", "sad", "frustrated", "happy", "tired", "awkward", "heart-broken", "cheerful", "petty", "over it", "whatever", "confused", "zen", "loved"];
@@ -43,10 +49,9 @@ $(document).ready(function () {
         $("#emotionInput").val("");
     });
 
-    // Create an on-click function to capture the user-click of an emotion button
-    // Used the delegated on-click to bind the click to future created buttons within the div as well
-    // When an emotion button within the div containing all emotion buttons is clicked
-    $(".emotionBtns-view").on("click", ".emoBtn", function () {
+    // Create a function to call the Giphy API, parse the response and print the corresponding images to the screen
+
+    function displayGifs() {
         // Capture the data-name property value from the clicked button
         var feeling = $(this).attr("data-name");
 
@@ -102,10 +107,13 @@ $(document).ready(function () {
                     $(".gifGrid").prepend(eachGifDiv);
                 }
             });
-    });
-    // Create an on-click function to capture the user-click of a generated gif image
-    // When a gif is clicked...
-    $(".gifGrid").on("click", "img", function () {
+    };
+
+
+    // Create a function to handle changing the state of gifs from still to animated,
+    // and animated to still, when clicked                
+
+    function toggleGifs() {
 
         // Get the current value of the data attribute 'data-state'
         var state = $(this).attr("data-state");
@@ -121,8 +129,22 @@ $(document).ready(function () {
             $(this).attr("src", $(this).attr("data-still"));
             $(this).attr("data-state", "still");
         }
-    });
+    };
 
 
+    // Create an on-click function to capture the user-click of an emotion button
+    // Used the delegated on-click to bind the click to future created buttons within the div as well
+    // Pass the displayGifs function as a callback
+    $(".emotionBtns-view").on("click", ".emoBtn", displayGifs);
+
+
+    // Create an on-click function to capture the user-click of a generated gif image
+    // Used the delegated on-click to bind the click to future created imgs within the gifGrid as well
+    // Pass the toggleGifs function as a callback
+
+    $(".gifGrid").on("click", "img", toggleGifs);
+
+    //Call the displayButtons function to display buttons for emotions in the initial array
+    displayButtons();
 
 });
