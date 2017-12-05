@@ -29,11 +29,12 @@ $(document).ready(function () {
         // Ccapture the user input from the textbox in emotion variable
         var emotion = $("#emotionInput").val().trim();
 
-        
+        //if the user's emotion is not already in the array
+        if (emotions.indexOf(emotion) === -1) {
 
-        // Add the user's emotion input to the array.
-        emotions.push(emotion);
-        
+            // Add the user's emotion input to the array.
+            emotions.push(emotion);
+        }
 
         //Re-display the buttons based on the expanded array
         displayButtons();
@@ -82,7 +83,7 @@ $(document).ready(function () {
                     // Assign multiple attributes to each image div to allow for toggling btw still and animated versions of gifs
 
                     // Add a src attribute which holds the version of the image that will initially be displayed
-                    emotionImg.attr("src", results[i].images.fixed_height_still.url); 
+                    emotionImg.attr("src", results[i].images.fixed_height_still.url);
                     // Add an attribute "data-still" to hold the still version of the gif for later acccess
                     emotionImg.attr("data-still", results[i].images.fixed_height_still.url);
                     // Add an attribute "data-animate" to hold the animated version of the gif for later access
@@ -105,7 +106,7 @@ $(document).ready(function () {
     // Create an on-click function to capture the user-click of a generated gif image
     // When a gif is clicked...
     $(".gifGrid").on("click", "img", function () {
-        
+
         // Get the current value of the data attribute 'data-state'
         var state = $(this).attr("data-state");
         // If the clicked image's state is still, change its src attribute to what its 'data-animate' attribute value is
@@ -114,8 +115,8 @@ $(document).ready(function () {
         if (state === "still") {
             $(this).attr("src", $(this).attr("data-animate"));
             $(this).attr("data-state", "animate");
-        // Else set src to the 'data-still' attribute value
-        // and set the image's data-state to still
+            // Else set src to the 'data-still' attribute value
+            // and set the image's data-state to still
         } else {
             $(this).attr("src", $(this).attr("data-still"));
             $(this).attr("data-state", "still");
