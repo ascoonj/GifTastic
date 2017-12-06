@@ -101,9 +101,14 @@ $(document).ready(function () {
                     // Append the paragraph and image tag to the new div for each emotion Gif
                     eachGifDiv.append(emotionImg).append(pRating);
 
+                    // Hide the gif containing each generated image to allow for it to be faded in
+                    eachGifDiv.hide();
 
-                    // Prependng eachGifDiv to gifGrid whicg hard-coded into html for displaying the generated gifs
+                    // Prependng eachGifDiv to gifGrid which was hard-coded into html for displaying the generated gifs
                     $(".gifGrid").prepend(eachGifDiv);
+                    
+                    // Make the divs gradually fade in on screen
+                    eachGifDiv.fadeIn(5000);
                 }
             });
     };
